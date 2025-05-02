@@ -37,7 +37,7 @@ pipeline{
                     python3 helloworld.py 5
                     cd myapp
                     python3 hello.py
-                    python3 test.py --name=Kenechukwu
+                    python3 hello.py --name=Kenechukwu
                     sleep 5
                 '''
             }
