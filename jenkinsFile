@@ -10,6 +10,8 @@ pipeline{
                 echo "======== Building... ========"
                 sh '''
                     echo "Building..."
+                    cd myapp
+                    pip install -r requirements.txt
                     sleep 5
                 '''
             }
@@ -30,9 +32,12 @@ pipeline{
         stage("Test"){
             steps{
                 echo "======== Testing... ========"
-                python3 helloworld.py
                 sh '''
                     echo "Testing..."
+                    python3 helloworld.py
+                    cd myapp
+                    python3 hello.py
+                    python3 test.py --name=Kenechukwu
                     sleep 5
                 '''
             }
