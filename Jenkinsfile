@@ -10,16 +10,18 @@ pipeline{
                 echo "======== Building... ========"
                 sh '''
                     echo "Building..."
+                    cd myapp
+                    pip install -r requirements.txt
                     sleep 5
                 '''
             }
             
             post{
                 always{
-                    echo "Build completed"
+                    echo "Build completed."
                 }
                 success{
-                    echo "Build executed successfully"
+                    echo "Build executed successfully."
                 }
                 failure{
                     echo "Build execution failed"
@@ -32,6 +34,10 @@ pipeline{
                 echo "======== Testing... ========"
                 sh '''
                     echo "Testing..."
+                    python3 helloworld.py
+                    cd myapp
+                    python3 hello.py
+                    python3 test.py --name=Kenechukwu
                     sleep 5
                 '''
             }
