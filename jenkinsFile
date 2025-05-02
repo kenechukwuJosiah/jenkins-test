@@ -32,6 +32,7 @@ pipeline{
                 echo "======== Testing... ========"
                 sh '''
                     echo "Testing..."
+                    python3 helloworld.py
                     sleep 5
                 '''
             }
