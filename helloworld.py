@@ -1,4 +1,3 @@
-x
 def say_hello():
   return "Hello, Jenkins Pipeline! This is a Python script."
 
