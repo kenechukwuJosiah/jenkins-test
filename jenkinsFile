@@ -30,9 +30,9 @@ pipeline{
         stage("Test"){
             steps{
                 echo "======== Testing... ========"
+                python3 helloworld.py
                 sh '''
                     echo "Testing..."
-                    python3 helloworld.py
                     sleep 5
                 '''
             }
