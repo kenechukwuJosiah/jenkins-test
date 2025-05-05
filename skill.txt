@@ -1,0 +1,8 @@
+| Skill         | Level of Expertise |
+|---------------|--------------------|
+| HTML          | Expert             |
+| CSS           | Expert             |
+| JavaScript    | Expert             |
+| Vue.js        | Expert             |
+| Nuxt.js       | Intermediate       |
+| Tailwind CSS  | Intermediate       |

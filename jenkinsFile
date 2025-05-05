@@ -1,0 +1,89 @@
+pipeline{
+    agent{
+        node {
+                label 'python-agent'
+                }
+    }
+    stages{
+        stage("Build"){
+            steps{
+                echo "======== Building... ========"
+                sh '''
+                    echo "Building..."
+                    cd myapp
+                    pip install -r requirements.txt --break-system-packages
+                    sleep 5
+                '''
+            }
+            
+            post{
+                always{
+                    echo "Build completed."
+                }
+                success{
+                    echo "Build executed successfully."
+                }
+                failure{
+                    echo "Build execution failed"
+                }
+            }
+        }
+
+        stage("Test"){
+            steps{
+                echo "======== Testing... ========"
+                sh '''
+                    echo "Testing..."
+                    python3 helloworld.py 5
+                    cd myapp
+                    python3 hello.py
+                    python3 hello.py --name=Kenechukwu
+                    sleep 5
+                '''
+            }
+            post{
+                always{
+                    echo "Test completed"
+                }
+                success{
+                    echo "Test executed successfully"
+                }
+                failure{
+                    echo "Test execution failed"
+                }
+            }
+        }
+
+        stage("Deploy"){
+            steps{
+                echo "======== Deploying... ========"
+                sh '''
+                    echo "Deploying..."
+                    sleep 5
+                '''
+            }
+            post{
+                always{
+                    echo "Deploy completed"
+                }
+                success{
+                    echo "Deploy executed successfully"
+                }
+                failure{
+                    echo "Deploy execution failed"
+                }
+            }
+        }
+    }
+    post{
+        always{
+            echo "========pipeline completed========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
